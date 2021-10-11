@@ -1,17 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import useWebSocket from 'react-use-websocket';
 
 const App = () => {
 
-  const { readyState } = useWebSocket('ws://localhost:10101/user', {
-    onError: (e) => console.error(e)
-  });
+  const [ messages, setMessages ] = useState<string>('');
 
-  console.log(readyState);
+  const { sendMessage } = useWebSocket('ws://localhost:10101/socket', {
+    onError: (e) => console.error(e),
+    onMessage: (e) => setMessages(messages + e?.data),
+    onOpen: (e) => console.log(e)
+  });
 
   return (
     <div className='App'>
-      Hello
+      <div>{messages}</div>
+      <button onClick={() => sendMessage('Hello')}>Send</button>
     </div>
   );
 }
