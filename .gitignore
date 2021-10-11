@@ -1,0 +1,43 @@
+#
+# Build output.
+#
+build/
+
+#
+# Debug output.
+#
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+#
+# Dependencies.
+#
+node_modules/
+/.pnp
+.pnp.js
+
+#
+# Jetbrains.
+#
+.idea
+
+#
+# MacOS
+#
+.DS_Store
+
+#
+# Misc.
+#
+.env.development.local
+.env.local
+.env.production.local
+.env.test.local
+config.js
+react-app-env.d.ts
+
+#
+# Testing.
+#
+/coverage
