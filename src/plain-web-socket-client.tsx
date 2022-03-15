@@ -69,7 +69,7 @@ const PlainWebSocketClient = () => {
   });
 
   return (
-    <div className='socket'>
+    <div>
       {getStateDescription(readyState)}
       <div>{messages}</div>
       <button onClick={() => send('Hello')}>Send</button>
