@@ -2,11 +2,15 @@ import React, { useEffect } from 'react';
 
 import { IMessage } from '@stomp/stompjs';
 
-import useStomp from './use-stomp';
+import useStompWebSocket from './use-stomp-web-socket';
 
 const StompWebSocketClient = () => {
 
-  const { connect, connected, sendMessage } = useStomp();
+  const { connect, connected, sendMessage } = useStompWebSocket({
+    callbacks: {
+      onConnect: () => console.log('Custom connect logging...')
+    }
+  });
 
   const onMessage = (message: IMessage) => {
     console.log(`Received message: ${message.body}`);
